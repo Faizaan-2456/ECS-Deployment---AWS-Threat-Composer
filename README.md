@@ -3,10 +3,13 @@
 ## Overview
 This project deploys a Dockerised application to AWS ECS Fargate using Terraform. The infrastructure includes an Application Load Balancer, Route 53 DNS, an ACM SSL certificate, Amazon ECR for container images, and GitHub Actions for automated deployments.
 
-![alt text](<Screenshot 2026-07-23 at 19.53.21.png>)
+<img width="1512" height="982" alt="App Running" src="https://github.com/user-attachments/assets/e6f42297-3fa1-4cf1-9a54-5a5f121c767c" />
+
 
 ## Architecture
-![alt text](<Screenshot 2026-07-23 at 13.42.26.png>)
+<img width="1376" height="1143" alt="Architectural Diagram" src="https://github.com/user-attachments/assets/f614683e-3135-4fba-be75-81c7fbfd3f83" />
+
+
 
 ## Key Features
 - Lightweight Docker image
@@ -67,9 +70,10 @@ This project deploys a Dockerised application to AWS ECS Fargate using Terraform
 - Uses OIDC over hardcoded access keys for short lived credentials
 - Automates the deployment of the docker image to ECR
 - Manual workflows to prevent unecessary changes
-![alt text](<Screenshot 2026-07-23 at 19.50.02.png>)
-![alt text](<Screenshot 2026-07-23 at 19.49.48.png>)
-![alt text](<Screenshot 2026-07-23 at 19.49.24.png>)
+<img width="1512" height="854" alt="TF Destroy Pipeline Success" src="https://github.com/user-attachments/assets/749b2cf6-4a4a-489c-ab96-89a9afceb155" />
+<img width="1512" height="850" alt="TF Apply Pipeline Success" src="https://github.com/user-attachments/assets/73606669-3128-460a-81da-7fe1827b1030" />
+<img width="1512" height="850" alt="Docker Push Pipeline Success" src="https://github.com/user-attachments/assets/46b67215-c6da-43a2-aab8-84ba6b9be61a" />
+
 
 
 ## Local Setup
