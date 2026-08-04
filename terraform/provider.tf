@@ -7,7 +7,7 @@ terraform {
   }
 
 
-backend "s3" {
+  backend "s3" {
     bucket       = "ecsprojects"
     key          = "ecs-project/terraform.tfstate"
     use_lockfile = true
