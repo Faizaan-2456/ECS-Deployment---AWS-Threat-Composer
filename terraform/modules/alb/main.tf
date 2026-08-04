@@ -25,8 +25,23 @@ resource "aws_lb_target_group" "ecs_target_group" {
   }
 }
 
+resource "aws_lb_listener" "http_listener" {
+  load_balancer_arn = aws_lb.ecs_project_alb.arn
+  port              = "80"
+  protocol          = "HTTP"
 
-# Add listener
+  default_action {
+    type = "redirect"
+
+    redirect {
+      port        = "443"
+      protocol    = "HTTPS"
+      status_code = "HTTP_301"
+    }
+  }
+}
+
+# Add HTTPS listener
 resource "aws_lb_listener" "https_listener" {
   load_balancer_arn = aws_lb.ecs_project_alb.arn
   port              = "443"
