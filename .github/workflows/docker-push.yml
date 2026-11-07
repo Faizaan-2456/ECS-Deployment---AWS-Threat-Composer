@@ -34,10 +34,10 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.ECR_REPOSITORY }}:${{ github.sha }} ./app  
+          docker build -t ${{ secrets.ECR_REPOSITORY }}:latest ./app  
 
       - name: Push Docker image to AWS ECR
         run: |
-          docker push ${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}
+          docker push ${{ secrets.ECR_REPOSITORY }}:latest
 
   
