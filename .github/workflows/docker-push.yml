@@ -1,9 +1,6 @@
 name: push docker image
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
        confirm:
