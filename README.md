@@ -1,7 +1,9 @@
 # ecs-project
 
 ## Overview
-This project deploys a Dockerised application to AWS ECS Fargate using Terraform. The infrastructure includes an Application Load Balancer, Route 53 DNS, an ACM SSL certificate, Amazon ECR for container images, and GitHub Actions for automated deployments.
+This project deploys a Dockerised application which is the AWS Threat Composer application to AWS ECS Fargate using Docker, Terraform, AWS and GitHub Actions. The infrastructure includes an Application Load Balancer, Route 53 DNS, an ACM SSL certificate, Amazon ECR for container images, and GitHub Actions for automated deployments.
+
+This application guides users through the potential security threats and bets practices associated with the services and data flows in that architecture.  
 
 <img width="1512" height="982" alt="App Running" src="https://github.com/user-attachments/assets/e6f42297-3fa1-4cf1-9a54-5a5f121c767c" />
 
@@ -74,6 +76,13 @@ This project deploys a Dockerised application to AWS ECS Fargate using Terraform
 <img width="1512" height="850" alt="TF Apply Pipeline Success" src="https://github.com/user-attachments/assets/73606669-3128-460a-81da-7fe1827b1030" />
 <img width="1512" height="850" alt="Docker Push Pipeline Success" src="https://github.com/user-attachments/assets/46b67215-c6da-43a2-aab8-84ba6b9be61a" />
 
+There are a couple improvements I can implement in order to make this project a little better:
+
+## Automate application deployments
+Extend the GitHub Actions pipeline so after building and pushing a new image to ECR, it automatically updates ECS task definition with new image tag. Pipeline would then update ES service to use that task definition.
+
+## Move ECS tasks into private subnets
+Add two private subnets across two Availability Zones and move ECS tasks into them. Keep ALB in public subnets so users can still access the application. A NAT gateway would provide outbound access for pulling images and contacting AWS services, although this would add running costs.
 
 
 ## Local Setup
